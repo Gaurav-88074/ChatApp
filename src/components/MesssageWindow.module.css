@@ -8,6 +8,8 @@
   width: 100%;
   /* border: 2px solid blue; */
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }
 ::-webkit-scrollbar {
   width: 10px;
