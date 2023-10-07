@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.chat{
+    background-color: #fcfcfc;
+    height: 100%;
+    width: 25%;
+    min-width: 300px;
+    /* min-height: 600px; */
+    /* border: 2px solid white; */
+    /* border-radius: 20px; */
+    overflow: hidden;
+}

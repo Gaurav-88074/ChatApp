@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.messageWindow {
+  height: 90%;
+  width: 100%;
+  /* border: 2px solid blue; */
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Define styles for the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Define styles for the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
