@@ -1,4 +1,4 @@
-import { Client, Account, ID, Databases } from "appwrite";
+import { Client, Account, ID, Databases ,Query} from "appwrite";
 
 const PROJECT_ID = "652115655d5afd906c81";
 const DATABASE_ID = "65211579dd1887d97a10";
@@ -9,7 +9,9 @@ const databases = new Databases(client);
 export const fetchMessage = () => {
   return new Promise((resolve, reject) => {
     try {
-        databases.getDocument(DATABASE_ID, COLLECTION_ID, "", []).then((obj) => {
+        databases.getDocument(DATABASE_ID, COLLECTION_ID, "", [
+          Query.limit(10000)
+        ]).then((obj) => {
             resolve(obj);
         });
     } catch (error) {

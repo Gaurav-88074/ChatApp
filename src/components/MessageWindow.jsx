@@ -23,7 +23,7 @@ const MessageWindow = () => {
   // console.log(messagesArray);
   const chatRender = (obj)=>{
     // console.log(obj);
-    if(obj.user_id==2){
+    if(obj.user_id=='2'){
       return <MessageRecieverCard key={obj.$id} body={obj.body}/>
     }
     else{

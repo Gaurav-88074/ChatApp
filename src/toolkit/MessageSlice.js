@@ -10,7 +10,7 @@ const messageSlice = createSlice({
 
         insertMessages(state,action){
             // console.log(action.payload);
-            state.messagesArray =  [...action.payload];
+            state.messagesArray =  [...action.payload,...state.messagesArray];
             state.messagesArray.reverse();
         },
         insertMessage(state,action){

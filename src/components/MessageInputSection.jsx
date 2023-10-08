@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { messageSliceActions } from '../toolkit/MessageSlice'
 import { storeMessage } from '../api/POST';
+import {IoSendSharp} from "react-icons/io5";
 const MessageInputSection = () => {
   const dispatch = useDispatch();
   const user_id = '1';
@@ -30,6 +31,16 @@ const MessageInputSection = () => {
     })
     setBody("");
   }
+  //-------------------
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      // Call the function or perform the action you want when Enter is pressed
+      // handleEnterPress();
+      // console.log("hit");
+      sendButtonHandler();
+    }
+  };
+  //-------------------
   return (
     <section className={classes.messageInputSection}>
       <section className={classes.left}></section>
@@ -42,10 +53,16 @@ const MessageInputSection = () => {
           placeholder='Type your text here'
           onChange={inputTextHandler}
           value = {body}
+          onKeyUp={handleKeyPress}
         />
       </section>
       <section className={classes.right}>
-        <button onClick={sendButtonHandler}>send</button>
+        <IoSendSharp
+          color='blue'
+          size={'2rem'}
+          onClick={sendButtonHandler}
+        />
+        {/* <button onClick={sendButtonHandler}>send</button> */}
       </section>
     </section>
   )
