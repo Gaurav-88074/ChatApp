@@ -6,10 +6,17 @@ import { useDispatch } from 'react-redux'
 import { messageSliceActions } from '../toolkit/MessageSlice'
 import { storeMessage } from '../api/POST';
 import {IoSendSharp} from "react-icons/io5";
+import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
 const MessageInputSection = () => {
   const dispatch = useDispatch();
-  const user_id = '1';
-  const userName = "Gaurav";
+  const user = useCallback(
+    useSelector((state) => state.authSliceReducer.user)
+  )
+  // console.log(user.$id);
+  //------------------------------------------------------
+  const user_id = user.$id;
+  const userName = user.name;
   const [body, setBody] = useState("");
   const inputTextHandler=(e)=>{
     setBody(e.target.value);

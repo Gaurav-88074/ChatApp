@@ -5,6 +5,8 @@ import MessageWindow from '../components/MessageWindow';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { messageSliceActions } from '../toolkit/MessageSlice';
+import { useSelector } from 'react-redux';
+import { useCallback } from 'react';
 //---------------------------------
 import { Client, Account, ID, Databases } from "appwrite";
 const PROJECT_ID = "652115655d5afd906c81";
@@ -15,7 +17,12 @@ client.setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID);
 // const databases = new Databases(client);
 //---------------------------------
 const Chat = () => {
-  const user_id = '1';
+  const user = useCallback(
+    useSelector((state) => state.authSliceReducer.user)
+  )
+  //--------------
+  const user_id = user.$id;
+  //--------------
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = client.subscribe(`databases.${DATABASE_ID}.collections.${COLLECTION_ID}.documents`,
@@ -24,7 +31,7 @@ const Chat = () => {
         // Callback will be executed on changes for all documents
         // console.log(response.payload);
         const messageObj = response.payload;
-        if(messageObj.user_id!=user_id){
+        if (messageObj.user_id != user_id) {
           dispatch(messageSliceActions.insertMessage(messageObj))
         }
       }
@@ -35,8 +42,8 @@ const Chat = () => {
   }, []);
   return (
     <div className={classes.chat}>
-        <MessageWindow/>
-        <MessageInputSection/>
+      <MessageWindow />
+      <MessageInputSection />
     </div>
   )
 }

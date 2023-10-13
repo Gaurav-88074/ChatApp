@@ -3,12 +3,12 @@ import classes from './MessageRecieverCard.module.css'
 const MessageRecieverCard = (props) => {
   return (
     <div className={classes.messageRecieverCard}>
-        <section className={classes.left}>
-            
-        </section>
-        <section className={classes.right}>
-            {props.body}
-        </section>
+      <section className={classes.left}>
+
+      </section>
+      <section className={classes.right}>
+          {props.body}
+      </section>
     </div>
   )
 }

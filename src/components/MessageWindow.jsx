@@ -7,9 +7,12 @@ import {dummyMessage as messages} from '../constants/messages'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import { messageSliceActions } from '../toolkit/MessageSlice';
-import { fetchMessage } from '../api/GET'
+import { fetchMessage } from '../api/GET';
+import { useCallback } from 'react'
 const MessageWindow = () => {
-  
+  const user = useCallback(
+    useSelector((state) => state.authSliceReducer.user)
+  )
   const dispatch = useDispatch();
   useEffect(() => {
     fetchMessage().then((obj)=>{
@@ -18,12 +21,12 @@ const MessageWindow = () => {
     });
   }, [])
   
-  const myId = 1;
+  // const  = 1;
   const messagesArray = useSelector(state => state.messageSliceReducer.messagesArray);
-  // console.log(messagesArray);
+  console.log(messagesArray);
   const chatRender = (obj)=>{
     // console.log(obj);
-    if(obj.user_id=='2'){
+    if(obj.user_id!=user.$id){
       return <MessageRecieverCard key={obj.$id} body={obj.body}/>
     }
     else{
