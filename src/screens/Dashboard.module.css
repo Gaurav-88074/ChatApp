@@ -5,11 +5,11 @@
 }
 .dashboard{
     background-color: #f3f7f3;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     min-width: 400px;
     min-height: 600px;
-    border: 2px solid white;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
     /* align-items: center; */
