@@ -1,7 +1,7 @@
 {
   "name": "web_frontend",
   "version": "0.1.0",
-  "homepage": "https://gaurav-88074.github.io/ChatApp",
+  "homepage": "http://gaurav-88074.github.io/ChatApp",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
