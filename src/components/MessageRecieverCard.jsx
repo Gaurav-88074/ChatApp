@@ -8,7 +8,7 @@ const MessageRecieverCard = (props) => {
       </section>
       <section className={classes.right}>
           <section className={classes.userName}>
-            Prakhar
+            {props.userName}
           </section>
           <section className={classes.body}>
             {props.body}

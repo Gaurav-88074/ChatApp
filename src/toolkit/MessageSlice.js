@@ -17,6 +17,9 @@ const messageSlice = createSlice({
             // console.log(action.payload);
             state.messagesArray =  [action.payload,...state.messagesArray];
         },
+        discardMessages(state,action){
+            state.messagesArray = [];
+        }
     }
 });
 export default messageSlice;

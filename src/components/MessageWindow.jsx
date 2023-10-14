@@ -27,7 +27,7 @@ const MessageWindow = () => {
   const chatRender = (obj)=>{
     // console.log(obj);
     if(obj.user_id!=user.$id){
-      return <MessageRecieverCard key={obj.$id} body={obj.body}/>
+      return <MessageRecieverCard key={obj.$id} body={obj.body} userName = {obj.userName}/>
     }
     else{
       return <MessageSenderCard key={obj.$id} body={obj.body}/>
