@@ -24,6 +24,7 @@ const MessageWindow = () => {
   // const  = 1;
   const messagesArray = useSelector(state => state.messageSliceReducer.messagesArray);
   // console.log(messagesArray);
+  // console.log(messagesArray);
   const chatRender = (obj)=>{
     // console.log(obj);
     if(obj.user_id!=user.$id){
